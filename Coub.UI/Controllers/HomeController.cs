@@ -126,7 +126,10 @@ namespace Coub.UI.Controllers
 
                 using (Stream responseStream = response.GetResponseStream())
                 {
-                    return File(responseStream, "video/mp4");
+                    byte[] fileBytes = new byte[responseStream.Length];
+                    responseStream.Read(fileBytes, 0, fileBytes.Length);
+                    return new FileContentResult(fileBytes, "video/mp4");//File(responseStream, "video/mp4");
+                    
                 }
             }
             catch (Exception)
