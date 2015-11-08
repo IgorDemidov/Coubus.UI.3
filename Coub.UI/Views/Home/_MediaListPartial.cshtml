@@ -5,7 +5,7 @@
         @for (int i = 0; i < Model.MediaViewModels.Count; i++)
         {
             <li>
-                <input id="prev-@Model.MediaTypeName-@Model.MediaViewModels[i].Id" type="radio" hidden name='@(Model.MediaTypeName + "RecId")' value="@Model.MediaViewModels[i].Id" />
+                <input id="prev-@Model.MediaTypeName-@Model.MediaViewModels[i].Id" type="radio" name='@(Model.MediaTypeName + "RecId")' value="@Model.MediaViewModels[i].Id" hidden/>
                 <label for="prev-@Model.MediaTypeName-@Model.MediaViewModels[i].Id">
                     <img class="img-preview"
                          src="@Url.Action("GetRecordMasterPreview", "Home", new { recordId = @Model.MediaViewModels[i].Id })"
@@ -20,9 +20,11 @@
 </div>
 
 <script>
-  //  document.getElementById("info-btn").addEventListener("click", function () { document.getElementById("modal-opener").click(); })
 
     function openInfoModal() {
         document.getElementById("modal-opener").click();
     }
+
+    document.getElementsByTagName("")
+
 </script>

@@ -16,13 +16,7 @@
 
 <div class="main-nav">
     <ul>
-        <li>
-            @using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "result" }))
-{
-    <input id="input-videoRecId" type="text" name="videoRecId" value="" hidden />
-    <input id="input-videoRecId" type="text" name="videoRecId" value="" hidden />
-    <input type="submit" value="OK" disabled/>
-}
+        <li>            
             @Ajax.ActionLink("Generate", "GenerateVideoTag", "Home", new { videoRecordId = Guid.Parse("2627615e-281e-4529-992e-a54900d8926b"), createdTagId = "coub-video" }, new AjaxOptions() { UpdateTargetId = "coub-video-container", LoadingElementId = "video-list-loader" }, new { @class = "a-button-big" })
         </li>
         <li>
@@ -31,6 +25,8 @@
     </ul>
 </div>
 
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "coub-video" }))
+{
 <div>
     <div class="media-container float-left">
 
@@ -71,7 +67,8 @@
 
 @*<a id="logoffer" href="#" >Logoff</a>*@
 
-
+    <input type="submit" value="OK" disabled hidden/>
+}
 
 <script>
     //document.getElementById("logoffer").addEventListener("click", logOff);
