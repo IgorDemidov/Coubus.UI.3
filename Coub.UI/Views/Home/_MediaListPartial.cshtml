@@ -12,7 +12,7 @@
                          alt="preview" />
                     <span>@Model.MediaViewModels[i].Name</span>
                     
-                    @Ajax.ActionLink("i", "GetMediaItemInfo", "Home", new { mediaRecId = Model.MediaViewModels[i].Id }, new AjaxOptions { UpdateTargetId = "media-info-container", LoadingElementId = "modal-loader" }, new { @class = "circled-hide-button-a", id = "info-btn" })                  
+                    @Ajax.ActionLink("i", "GetMediaItemInfo", "Home", new { mediaRecId = Model.MediaViewModels[i].Id }, new AjaxOptions { UpdateTargetId = "media-info-container", LoadingElementId = "modal-loader" }, new { @class = "circled-hide-button-a", @id = "info-btn-" + Model.MediaViewModels[i].Id, @onclick = "openInfoModal()" })                  
                 </label>
             </li>
         }
@@ -20,5 +20,9 @@
 </div>
 
 <script>
-    document.getElementById("info-btn").addEventListener("click", function () { document.getElementById("modal-opener").click(); })
+  //  document.getElementById("info-btn").addEventListener("click", function () { document.getElementById("modal-opener").click(); })
+
+    function openInfoModal() {
+        document.getElementById("modal-opener").click();
+    }
 </script>

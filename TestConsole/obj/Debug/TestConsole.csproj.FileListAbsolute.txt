@@ -10,3 +10,9 @@ C:\Users\Igr\Desktop\Coubus3\TestConsole\bin\Debug\TestConsole.pdb
 C:\Users\Igr\Desktop\Coubus3\TestConsole\obj\Debug\TestConsole.csprojResolveAssemblyReference.cache
 C:\Users\Igr\Desktop\Coubus3\TestConsole\obj\Debug\TestConsole.exe
 C:\Users\Igr\Desktop\Coubus3\TestConsole\obj\Debug\TestConsole.pdb
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\TestConsole\bin\Debug\TestConsole.exe.config
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\TestConsole\bin\Debug\TestConsole.exe
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\TestConsole\bin\Debug\TestConsole.pdb
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\TestConsole\obj\Debug\TestConsole.exe
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\TestConsole\obj\Debug\TestConsole.pdb
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\TestConsole\obj\Debug\TestConsole.csprojResolveAssemblyReference.cache

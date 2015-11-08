@@ -20,7 +20,7 @@
     </a>  
     <div id="openModal" class="modalDialog">
         <div>
-            <a href="#close" title="Close" class="close">x</a>
+            <a id="close-modal-btn" href="#close" title="Close" class="close" onclick="clearModalInfo()">x</a>
             <div>
                 <img id="modal-loader" src="/Content/images/loader2.gif" style="display: none; height: 100%" />
             </div>
@@ -29,6 +29,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function clearModalInfo() {
+            document.getElementById("media-info-container").innerHTML = "";            
+        }
+    </script>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")

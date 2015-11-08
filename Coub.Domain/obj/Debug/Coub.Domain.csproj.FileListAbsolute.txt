@@ -7,3 +7,7 @@ C:\Users\Igr\Desktop\Coubus3\Coub.Domain\bin\Debug\Coub.Domain.dll
 C:\Users\Igr\Desktop\Coubus3\Coub.Domain\bin\Debug\Coub.Domain.pdb
 C:\Users\Igr\Desktop\Coubus3\Coub.Domain\obj\Debug\Coub.Domain.dll
 C:\Users\Igr\Desktop\Coubus3\Coub.Domain\obj\Debug\Coub.Domain.pdb
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\Coub.Domain\bin\Debug\Coub.Domain.dll
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\Coub.Domain\bin\Debug\Coub.Domain.pdb
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\Coub.Domain\obj\Debug\Coub.Domain.dll
+C:\Users\Igr\Desktop\Coubus3\Coubus.UI.3\Coub.Domain\obj\Debug\Coub.Domain.pdb

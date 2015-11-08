@@ -94,9 +94,17 @@ namespace Coub.UI.Controllers
             {
                 RecordRepository recordRepository = new RecordRepository((Application)Session["AdamApp"]);
                 byte[] previewFileBytes = recordRepository.Get(recordId).Files.LatestMaster.GetPreview().GetBytes();
+                if (previewFileBytes==null)
+                {
+                    using (FileStream stream = System.IO.File.OpenRead("/Content/images/movie_prev.png"))
+                    {
+                        previewFileBytes = new byte[stream.Length];
+                        stream.Read(previewFileBytes, 0, previewFileBytes.Length);
+                    }
+                }
                 return new FileContentResult(previewFileBytes, "image/jpeg");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ((Application)Session["AdamApp"]).LogOff();
                 throw;
@@ -176,24 +184,7 @@ namespace Coub.UI.Controllers
 
 
 
-        private void UnZipFile(Stream compressedStream)
-        {
-            using (GZipStream zip = new GZipStream(compressedStream, CompressionMode.Decompress))
-            {
-                //ZipFileExtensions
-                                   
-            }
-            
-
-        }
-
-
-        private Guid StringToGuid(string id)
-        {
-            Guid guid = Guid.Parse("17203685-4c28-47b9-baa9-a546018ac067");
-
-            return guid;
-        }
+        
 
         
 
@@ -206,6 +197,26 @@ namespace Coub.UI.Controllers
 
 
         #region Temp
+
+        private void UnZipFile(Stream compressedStream)
+        {
+            using (GZipStream zip = new GZipStream(compressedStream, CompressionMode.Decompress))
+            {
+                //ZipFileExtensions
+
+            }
+
+
+        }
+
+
+        private Guid StringToGuid(string id)
+        {
+            Guid guid = Guid.Parse("17203685-4c28-47b9-baa9-a546018ac067");
+
+            return guid;
+        }
+
 
         private List<string> GetByte64Previews()
         {
