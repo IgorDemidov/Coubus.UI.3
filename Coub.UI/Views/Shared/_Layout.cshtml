@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body id="main-body">
+    <header id="main-header">
+        <a href="/Home/Index"><img class="logo" src="/Content/images/logo_coubus.png" alt="Coubus logo"/></a>
+    </header>
+
+
+<div>
+    @RenderBody()
+</div>
+    <a id="modal-opener" href="#openModal"  hidden>
+
+    </a>  
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">x</a>
+            <div>
+                <img id="modal-loader" src="/Content/images/loader2.gif" style="display: none; height: 100%" />
+            </div>
+            <div id="media-info-container">
+
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

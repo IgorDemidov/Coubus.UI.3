@@ -1,0 +1,16 @@
+﻿@model Coub.UI.Models.MediaViewModel
+
+
+<div>
+    @Html.Action("GenerateVideoTag", "Home", new { videoRecordId = Model.Id, createdTagId = "info-video" })
+</div>
+<div>
+    <dl>
+        <dt>Author:</dt>
+        <dd>@Model.Author</dd>
+        <dt>Name:</dt>
+        <dd>@Model.Name</dd>
+        <dt>Description:</dt>
+        <dd>@Model.Description</dd>
+    </dl>
+</div>

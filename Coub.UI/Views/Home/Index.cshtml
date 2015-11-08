@@ -1,0 +1,98 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="coub-video-container" class="coub-container">
+
+    <video id="coub-video" width="50%" height="auto" loop="true" controls style="min-height:50px;">
+        @*<source src="@Url.Action("GetGeneratedCoubVideoFile", )" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>*@
+        Your browser does not support the video tag.
+    </video>
+
+</div>
+
+<div class="main-nav">
+    <ul>
+        <li>
+            @using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "result" }))
+{
+    <input type="text" name="videoId" value=" " />
+    <input type="submit" value="OK" disabled/>
+}
+            @Ajax.ActionLink("Generate", "GenerateVideoTag", "Home", new { videoRecordId = Guid.Parse("d79c146c-2c05-4e32-b2cd-a54900919ffb"), createdTagId="coub-video" }, new AjaxOptions() { UpdateTargetId = "coub-video-container", LoadingElementId = "video-list-loader" }, new { @class = "a-button-big" })
+        </li>
+        <li>
+            @Ajax.ActionLink("Save", "GetPreviews", "Home", null, new AjaxOptions() { UpdateTargetId = "previews", LoadingElementId = "video-list-loader" }, new { @class = "a-button-big" })
+        </li>
+    </ul>
+</div>
+
+<div>
+    <div class="media-container float-left">
+
+        <div class="media-list-header">
+            <span>MOVIES</span>
+            
+            @Ajax.ActionLink("Update", "GetVideoItemList", "Home", null, new AjaxOptions() {UpdateTargetId = "video-previews", LoadingElementId = "video-list-loader"}, new {@class = "a-button float-right", @id="video-update-a"})
+        </div>
+
+        <div class="media-content-wrapper">
+            <div class="media-list-container">
+                <img id="video-list-loader" src="/Content/images/loader2.gif" style="display: none; height: 100%" />
+                <div id="video-previews">
+                    @Html.Action("GetVideoItemList")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="audios" class="media-container float-right">
+
+        <div class="media-list-header">
+            <span>SOUNDS</span>
+            @Ajax.ActionLink("Update", "GetPreviews", "Home", null, new AjaxOptions() { UpdateTargetId = "audio-previews", LoadingElementId = "audio-list-loader" }, new { @class = "a-button float-right", @id = "audio-update-a" })
+        </div>
+
+        <div class="media-content-wrapper">
+            <div class="media-list-container">
+                <img id="audio-list-loader" src="/Content/images/loader2.gif" style="display: none; height: 100%" />
+                <div id="audio-previews">
+                    @Html.Action("GetAudioItemList")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<a id="logoffer" href="#">Logoff</a>
+
+
+
+<script>
+    document.getElementById("logoffer").addEventListener("click", logOff);
+    document.body.addEventListener("unload", logOff);
+    document.getElementById("video-update-a").addEventListener("click", function () { document.getElementById("video-previews").innerHTML = '' })
+
+    function logOff() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", '@Url.Action("LogOff")');
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4) {
+                if (xmlhttp.status == 400) {
+                    console.log('ok');
+                } else {
+                    console.log('error')
+                }
+            }
+        }
+        xmlhttp.send(null);
+    }
+
+
+    window.showModalDialog()
+</script>
+

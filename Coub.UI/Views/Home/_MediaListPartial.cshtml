@@ -1,0 +1,24 @@
+﻿@model Coub.UI.Models.MediaSetViewModel
+
+<div>
+    <ul>
+        @for (int i = 0; i < Model.MediaViewModels.Count; i++)
+        {
+            <li>
+                <input id="prev-@Model.MediaTypeName-@Model.MediaViewModels[i].Id" type="radio" hidden name='@(Model.MediaTypeName + "RecId")' value="@Model.MediaViewModels[i].Id" />
+                <label for="prev-@Model.MediaTypeName-@Model.MediaViewModels[i].Id">
+                    <img class="img-preview"
+                         src="@Url.Action("GetRecordMasterPreview", "Home", new { recordId = @Model.MediaViewModels[i].Id })"
+                         alt="preview" />
+                    <span>@Model.MediaViewModels[i].Name</span>
+                    
+                    @Ajax.ActionLink("i", "GetMediaItemInfo", "Home", new { mediaRecId = Model.MediaViewModels[i].Id }, new AjaxOptions { UpdateTargetId = "media-info-container", LoadingElementId = "modal-loader" }, new { @class = "circled-hide-button-a", id = "info-btn" })                  
+                </label>
+            </li>
+        }
+    </ul>
+</div>
+
+<script>
+    document.getElementById("info-btn").addEventListener("click", function () { document.getElementById("modal-opener").click(); })
+</script>
